@@ -2,7 +2,7 @@
 
 > Click the link below for an interactive, collapsible guide to **ports, limits, skips & raid tricks** in Destiny 2.
 
-🔗 [Open the live guide](https://YOUR_USERNAME.github.io/netlimiter-bible/netlimiter-bible.html)
+🔗 [Open the live guide](https://azzuurre.github.io/netlimiter-bible/)
 
 Features  
 - Dark / RGB toggle  
