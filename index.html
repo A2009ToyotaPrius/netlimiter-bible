@@ -30,72 +30,72 @@
       color: var(--accent);
     }
     details {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin: 0.75rem 0;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin: 0.75rem 0;
     }
     summary {
-      padding: 1rem;
-      cursor: pointer;
-      font-weight: 600;
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: 600;
     }
     summary:hover {
-      background: rgba(88, 166, 255, 0.08);
+        background: rgba(88, 166, 255, 0.08);
     }
     .content {
-      padding: 0 1.25rem 1.5rem;
+        padding: 0 1.25rem 1.5rem;
     }
     .content ul, .content ol {
-      margin-left: 1.25rem;
+        margin-left: 1.25rem;
     }
     .warning {
-      background: rgba(255, 77, 77, 0.12);
-      border-left: 4px solid var(--warn);
-      padding: 0.75rem 1rem;
-      margin: 1rem 0;
-      border-radius: 4px;
+        background: rgba(255, 77, 77, 0.12);
+        border-left: 4px solid var(--warn);
+        padding: 0.75rem 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
     }
     .pro {
-      background: rgba(88, 166, 255, 0.1);
-      border-left: 4px solid var(--accent);
-      padding: 0.75rem 1rem;
-      margin: 1rem 0;
-      border-radius: 4px;
+        background: rgba(88, 166, 255, 0.1);
+        border-left: 4px solid var(--accent);
+        padding: 0.75rem 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
     }
     a {
-      color: var(--accent);
+        color: var(--accent);
     }
     footer {
-      margin-top: 4rem;
-      text-align: center;
-      font-size: 0.9rem;
+        margin-top: 4rem;
+        text-align: center;
+        font-size: 0.9rem;
     }
     .btn {
-      display: inline-block;
-      padding: 0.75rem 2rem;
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      transition: 0.3s;
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        border: 1px solid var(--accent);
+        border-radius: 4px;
+        transition: 0.3s;
     }
     .btn:hover {
-      background: var(--accent);
-      color: var(--bg);
+        background: var(--accent);
+        color: var(--bg);
     }
     #cover {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 999;
-      transition: opacity 0.6s;
+        position: fixed;
+        inset: 0;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 999;
+        transition: opacity 0.6s;
     }
     #content {
-      opacity: 0;
-      transition: opacity 0.6s;
+        opacity: 0;
+        transition: opacity 0.6s;
     }
   </style>
 </head>
@@ -106,7 +106,6 @@
     <div style="text-align:center;">
       <h1>NetLimiter Bible</h1>
       <p>Destiny 2 limits, ports, bosses & more</p>
-      <!-- NEW credit line -->
       <p style="font-size:0.8rem;opacity:.7;margin:.5rem 0;">
         Original PDF by scotland & SyntaxFishy · HTML expansion by A2009ToyotaPrius & en_liest_el_krig
       </p>
@@ -119,7 +118,7 @@
     <h1>NetLimiter Bible – Destiny 2 (Expanded Edition)</h1>
     <p>Click any heading to expand the mechanic you want. Every section tells you <strong>what it does</strong>, <strong>exactly how to do it</strong>, and <strong>what can go wrong</strong>.</p>
 
-    <!-- (all your previous sections stay identical) -->
+    <!-- ---------------- HOW NOT TO GET BANNED ---------------- -->
     <details>
       <summary>How to NOT Get Banned (and Why)</summary>
       <div class="content">
@@ -135,8 +134,228 @@
       </div>
     </details>
 
-    <!-- (keep all other <details> blocks exactly as they were) -->
+    <!-- ---------------- PORTS & USES ---------------- -->
+    <details>
+      <summary>Ports & What They Actually Control</summary>
+      <div class="content">
+        <p><strong>Quick primer:</strong> NetLimiter lets you choke <em>specific</em> Destiny traffic. Each port below handles a different slice of the game. Choke the right one and the server believes your client, but not vice-versa.</p>
+        <ul>
+          <li><strong>3074 (DL or UL 1 B/s)</strong><br>
+            – Damage to enemies, door triggers, wipe-mechanic packets.<br>
+            – <strong>DL</strong> = immortal enemies / infinite DPS.<br>
+            – <strong>UL</strong> = stops you receiving health updates (prevents de-sync on some bosses).<br>
+            <span style="color:var(--warn)">Hold too long → Spinach (DL) or Arugula (UL) error.</span>
+          </li>
+          <li><strong>30000-30009 “30 k” (DL 1 B/s)</strong><br>
+            – Game-world connection. Blocks “Joining Allies” and lets you walk through load-zones solo.<br>
+            <span style="color:var(--warn)">~12 s = Anteater/Baboon kick.</span>
+          </li>
+          <li><strong>27015-27200 “27 k” (DL 1 B/s)</strong><br>
+            – Player-to-player link. Revive tokens, rally flags, True-Host drops.<br>
+            <span style="color:var(--warn)">Not host + long hold = Beaver error.</span>
+          </li>
+          <li><strong>7500 “API port” (DL 1 B/s)</strong><br>
+            – Backend inventory / reward calls. Was used for infinite rally flags and gun-damage swaps.<br>
+            <span style="color:var(--warn)">PATCHED – 3 s desync still works for flags, but no loot loops.</span>
+          </li>
+          <li><strong>433 (DL 1 B/s)</strong><br>
+            – Matchmaking only. Blocks solo-queue activities (alt to 27 k).</li>
+        </ul>
+        <div class="pro"><strong>Pro tip:</strong> Limit ONE direction only (DL or UL) unless a guide explicitly says both; you’ll last longer before DC.</div>
+      </div>
+    </details>
 
+    <!-- ---------------- LIMITING DAMAGE ---------------- -->
+    <details>
+      <summary>Limiting Damage – Step-by-Step</summary>
+      <div class="content">
+        <p><strong>Goal:</strong> Keep shooting while the boss can’t register the hits, then force the game to accept all the stored damage at once.</p>
+        <ol>
+          <li><strong>Stick a Damage-over-Time source FIRST</strong><br>
+            Chaos Reach (tap), Thundercrash (impact + lightning), Witherhoard, Osteo, Anarchy, Jolt, Burn, etc.</li>
+          <li><strong>Immediately limit port 3074 DL 1 B/s.</strong><br>
+            You’ll see immune numbers—this is expected.</li>
+          <li><strong>Keep the DoT running; add other guns if you like.</strong><br>
+            Surrounded perk = free 40 % buff even in limit.</li>
+          <li><strong>Coordinate buffers every 10 s (NL5) or 15 s (NL4)</strong> so no one de-syncs.</li>
+          <li><strong>Call “UNLIMIT” together.</strong><br>
+            Everyone stops the limit, then fires an SMG / trace rifle to “register” the stored damage.</li>
+        </ol>
+        <div class="warning">If anyone sees white numbers instead of immune, un-limit right away—those ticks are about to be lost.</div>
+        <div class="pro">Synthoceps + Thundercrash after-shock = highest solo burst (65 % buff) because Cuirass only buffs the initial hit.</div>
+      </div>
+    </details>
+
+    <!-- ---------------- RAID BY RAID ---------------- -->
+    <details>
+      <summary>Raid Cheatsheet (when it works, what port)</summary>
+      <div class="content">
+        <ul>
+          <li><strong>Last Wish</strong><br>
+            Kalli – glitchy HP, use 3074 DL, buffer often.<br>
+            Shuro Chi – tiny gates, not worth it.<br>
+            Riven – infinite 3074 DL; MUST shoot body after un-limit or final-stand immune wipes you.</li>
+          <li><strong>Vault of Glass</strong><br>
+            Templar – infinite; relic super pop with flag relocate trick.<br>
+            Atheon – infinite 3074 DL; oracles can be shot in limit then all break at once.</li>
+          <li><strong>Deep Stone Crypt</strong><br>
+            Atraks – works until body disappears.<br>
+            Taniks – pre-damage OK (upload), normal infinite (download).<br>
+            Descent cores – 30 k kill + hold core deletes it, bugs suppressor.</li>
+          <li><strong>Vow of the Disciple</strong><br>
+            Caretaker – pre only (kill yourself while ticking).<br>
+            Rhulk – infinite until final stand; upload live-updates for limiter.</li>
+          <li><strong>Kings Fall</strong><br>
+            Warpriest – pre-damage OK.<br>
+            Golgoroth – MUST be in pool while limit hits.<br>
+            Oryx – infinite; no brand on final stand—don’t detonate bombs until phase ends.</li>
+          <li><strong>Root of Nightmares</strong><br>
+            Nezarec – infinite 3074 UL or DL; upload shows live health.</li>
+          <li><strong>Crota’s End</strong><br>
+            Sword 8-hit (5 with Tractor) sends to damage; oversoul still wipes if not shot.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- =================  DUNGEONS ONLY  ================= -->
+    <details>
+      <summary>All Dungeons – Limits, Skips, Tricks</summary>
+      <div class="content">
+        <h3>Shattered Throne</h3>
+        <ul>
+          <li><strong>Vorgeth</strong> – Infinite 3074 DL; low HP pool, melt away.</li>
+          <li><strong>Dul Incaru</strong> – You can limit, but she dies so fast it’s rarely worth the setup.</li>
+        </ul>
+
+        <h3>Prophecy</h3>
+        <ul>
+          <li><strong>Phalanx Echo</strong> – Infinite limit, but goblins grant immunity outside of limit; kill them first.</li>
+          <li><strong>Kell Echo</strong> – Infinite 3074 <strong>upload mandatory</strong>; body is out-of-map, so register with an SMG/Trace on un-limit. Horseman registers poorly here.</li>
+        </ul>
+
+        <h3>Pit of Heresy</h3>
+        <ul>
+          <li><strong>Zulmak</strong> – Pre-damage OK (kill yourself while ticking). Normal infinite after that; use upload so you see live HP.</li>
+        </ul>
+
+        <h3>Grasp of Avarice</h3>
+        <ul>
+          <li><strong>Burdened by Riches dupe</strong><br>
+            3074 DL <strong>before</strong> you touch the crystal; you keep the buff and can dunk again.<br>
+            Timings: Ogre riches 20 s, Shield riches 10 s, Avarokk riches 35 s.</li>
+          <li><strong>Trigger-rich skip</strong><br>
+            Limit 3074 and pick up the “trigger” rich that normally explodes; hold ~1:10 if you don’t want more.</li>
+          <li><strong>Captain Avarokk</strong> – Infinite 3074 DL; register on un-limit.</li>
+        </ul>
+
+        <h3>Duality</h3>
+        <ul>
+          <li><strong>Gahlran</strong> – Infinite limit; if he doesn’t die before timer ends you trade deaths when limit stops.</li>
+          <li><strong>Caiatl</strong> – Basically useless <strong>without bell buff</strong>; with buff you get 11 s of good damage.</li>
+        </ul>
+
+        <h3>Spire of the Watcher</h3>
+        <ul>
+          <li><strong>Arctrician nodes</strong><br>
+            Full-Game limit (or 3074 DL) lets you shoot nodes without ads. Keep Arctrician buff or nodes reset.</li>
+          <li><strong>Akelous</strong> – Infinite; register damage after un-limit.</li>
+          <li><strong>2→3 transition skip</strong><br>
+            30 k kill + 3074 DL lets you drop straight to red room; teammate must hit first CP at top.</li>
+          <li><strong>Persys</strong> – Infinite 3074 DL; register on un-limit.</li>
+        </ul>
+
+        <h3>Ghosts of the Deep</h3>
+        <ul>
+          <li><strong>Ecthar & Simmumah</strong> – Both infinite; download + register.</li>
+        </ul>
+
+        <h3>Warlord’s Ruin</h3>
+        <ul>
+          <li><strong>1→2 transition</strong><br>
+            30 k kill + 3074 through door; skate back to cave end to hit checkpoint.</li>
+          <li><strong>Locus of Wailing Grief</strong> – 3074 DL works but loops fast; Horseman OK.</li>
+          <li><strong>2→3 skip</strong><br>
+            30 k + 3074 through door OR limit into chest load-zone, place stasis crystals to death-spawn.</li>
+          <li><strong>Hefnd’s Vengeance</strong> – Infinite until immune after a few seconds; kill yourself to continue (like Caretaker).</li>
+        </ul>
+
+        <div class="warning"><strong>General dungeon warning:</strong> Most final bosses hit an early “white number” cap; always have someone ready to register with an SMG or Trace the instant you un-limit.</div>
+      </div>
+    </details>
+    <!-- =================  END DUNGEONS  ================= -->
+
+    <!-- ---------------- HORSEMAN / 7500 SWAPS ---------------- -->
+    <details>
+      <summary>Horseman / 7500 Weapon-Swap Damage</summary>
+      <div class="content" style="color:var(--warn)">
+        <p><strong>What it does:</strong> Copy a high-damage gun’s stats onto another weapon (e.g., slug shotgun → 4th Horseman) for one monster shot.</p>
+        <ol>
+          <li>Hold your “main” gun (the one you’ll keep, e.g., 4th Horseman).</li>
+          <li>Limit port 7500 DL 1 B/s, wait 3 s (you’ll see activity drop to almost zero).</li>
+          <li>Swap to “multiplier” gun (slug, fusion, etc.).</li>
+          <li>Register the swap: tap text-chat, Divinity bubble, or inventory back-and-forth.</li>
+        </ol>
+        <p><strong>Best combos:</strong> Duality→slug, Scatter Signal→Arbalest, HC→Bow (PvP 2-tap).</p>
+        <p><strong>Patched</strong> – servers no longer accept the damage packet on most bosses; use only for fun in patrol.</p>
+      </div>
+    </details>
+
+    <!-- ---------------- BUFFER & DESYNC ---------------- -->
+    <details>
+      <summary>Buffering & Desync Explained</summary>
+      <div class="content">
+        <p><strong>Buffering = mini re-connect.</strong> You un-limit for ~0.5 s then re-limit. This stops the server from thinking you hard-DC.</p>
+        <ul>
+          <li>NL5 → buffer every 10 s.</li>
+          <li>Vision / NL4 → every 15 s.</li>
+          <li>Watch NetLimiter “Activity” pane; buffer when rate hits 0 B/s.</li>
+        </ul>
+        <p><strong>Desync = your instance is too far behind.</strong> You’ll stop seeing enemy moves, then get Arugula / Beaver / Weasel. Only fixes: change character or restart the game.</p>
+        <div class="pro">Buffer together on voice call—if even one person keeps limit too long, the whole fireteam can de-sync.</div>
+      </div>
+    </details>
+
+    <!-- ---------------- PRE-DAMAGE ---------------- -->
+    <details>
+      <summary>Pre-Damage (Hit Immune Bosses Early)</summary>
+      <div class="content">
+        <p><strong>Use case:</strong> Kill a boss <em>before</em> its intended damage window (e.g., Caretaker, Zulmak, Warpriest).</p>
+        <ol>
+          <li>Start any DoT on the immune boss.</li>
+          <li>Limit 3074 DL until you see “Immune” numbers ticking.</li>
+          <li><strong>Kill yourself</strong> while still in limit (white-bar HP or revive token).</li>
+          <li>Wait; immune ticks turn into white numbers → damage is stored.</li>
+          <li>Get revived, un-limit, shoot boss once to register.</li>
+        </ol>
+        <div class="warning">If you wait too long after un-limit, white numbers revert to yellow and the stored damage is lost.</div>
+      </div>
+    </details>
+
+    <!-- ---------------- MISC TRICKS ---------------- -->
+    <details>
+      <summary>Misc. Tricks & Quality-of-Life</summary>
+      <div class="content">
+        <ul>
+          <li><strong>Rally Banner relocate</strong><br>
+            Hold flag prompt → limit 3074 → walk to new spot → un-limit → banner plants there (instant relic super at Templar).</li>
+          <li><strong>Infinite rally flags</strong><br>
+            7500 DL 3 s desync → grab flag → repeat 30-45 s. No extra loot, but free heavy/super refill.</li>
+          <li><strong>Dupe revive tokens</strong><br>
+            Limit 27k → revive friend → wait 5 s → un-limit. Works for multiple revives in one go.</li>
+          <li><strong>Game-Pause (suspend Destiny 2)</strong><br>
+            Freezes memory; skip Joining Allies or stall radiation. Hold F4 (Auto-hot-key script) or use “Process Suspend” in NetLimiter. Bee error if >7 s.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- ---------------- HARRYWATCH / LINKS ---------------- -->
+    <details>
+      <summary>HarryWatch – Real-Time Monitor</summary>
+      <div class="content">
+        <p>Light-weight tray app that flashes when your upload/download drops to limit levels—no more staring at NetLimiter numbers.</p>
+        <a href="https://github.com/HarrySpce/HarryWatch" target="_blank" rel="noopener">https://github.com/HarrySpce/HarryWatch</a>
+      </div>
+    </details>
   </div> <!-- /#content -->
 
   <!-- ==========  FOOTER WITH LINK + CREDIT  ========== -->
